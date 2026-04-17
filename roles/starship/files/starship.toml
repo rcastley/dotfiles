@@ -1,16 +1,16 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](#B5457A)\
+[](#B5457A)\
 $os\
 $username\
 $hostname\
-[](bg:#C06A3E fg:#B5457A)\
+[](bg:#C06A3E fg:#B5457A)\
 $directory\
-[](fg:#C06A3E bg:#C9993A)\
+[](fg:#C06A3E bg:#C9993A)\
 $git_branch\
 $git_status\
-[](fg:#C9993A bg:#549448)\
+[](fg:#C9993A bg:#549448)\
 $c\
 $elixir\
 $elm\
@@ -23,11 +23,11 @@ $nodejs\
 $nim\
 $rust\
 $scala\
-[](fg:#549448 bg:#3D7E76)\
+[](fg:#549448 bg:#3D7E76)\
 $docker_context\
-[](fg:#3D7E76 bg:#2C5468)\
+[](fg:#3D7E76 bg:#2C5468)\
 $time\
-[ ](fg:#2C5468)\
+[ ](fg:#2C5468)\
 """
 
 # Disable the blank line at the start of the prompt
@@ -64,9 +64,9 @@ truncation_symbol = "…/"
 # similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
 "Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
 # Keep in mind that the order matters. For example:
 # "Important Documents" = " 󰈙 "
 # will not be replaced, because "Documents" was already substituted before.
@@ -74,32 +74,32 @@ truncation_symbol = "…/"
 # "Important 󰈙 " = " 󰈙 "
 
 [c]
-symbol = " "
+symbol = " "
 style = "bg:#549448 fg:white"
 format = '[ $symbol ($version) ]($style)'
 
 [cpp]
-symbol = " "
+symbol = " "
 style = "bg:#549448 fg:white"
 format = '[ $symbol ($version) ]($style)'
 
 [docker_context]
-symbol = " "
+symbol = " "
 style = "bg:#3D7E76 fg:white"
 format = '[ $symbol $context ]($style)'
 
 [elixir]
-symbol = " "
+symbol = " "
 style = "bg:#549448 fg:white"
 format = '[ $symbol ($version) ]($style)'
 
 [elm]
-symbol = " "
+symbol = " "
 style = "bg:#549448 fg:white"
 format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
-symbol = ""
+symbol = ""
 style = "bg:#C9993A fg:white"
 format = '[ $symbol $branch ]($style)'
 
@@ -108,7 +108,7 @@ style = "bg:#C9993A fg:white"
 format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
-symbol = " "
+symbol = " "
 style = "bg:#549448 fg:white"
 format = '[ $symbol ($version) ]($style)'
 
@@ -117,22 +117,22 @@ style = "bg:#549448 fg:white"
 format = '[ $symbol ($version) ]($style)'
 
 [haskell]
-symbol = " "
+symbol = " "
 style = "bg:#549448 fg:white"
 format = '[ $symbol ($version) ]($style)'
 
 [java]
-symbol = " "
+symbol = " "
 style = "bg:#549448 fg:white"
 format = '[ $symbol ($version) ]($style)'
 
 [julia]
-symbol = " "
+symbol = " "
 style = "bg:#549448 fg:white"
 format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
-symbol = ""
+symbol = ""
 style = "bg:#549448 fg:white"
 format = '[ $symbol ($version) ]($style)'
 
@@ -142,12 +142,12 @@ style = "bg:#549448 fg:white"
 format = '[ $symbol ($version) ]($style)'
 
 [rust]
-symbol = ""
+symbol = ""
 style = "bg:#549448 fg:white"
 format = '[ $symbol ($version) ]($style)'
 
 [scala]
-symbol = " "
+symbol = " "
 style = "bg:#549448 fg:white"
 format = '[ $symbol ($version) ]($style)'
 
