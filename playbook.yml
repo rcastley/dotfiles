@@ -1,0 +1,20 @@
+---
+- name: Configure macOS
+  hosts: localhost
+  connection: local
+
+  roles:
+    - role: homebrew
+      tags: [homebrew]
+    - role: zsh
+      tags: [zsh]
+    - role: git
+      tags: [git]
+    - role: ghostty
+      tags: [ghostty]
+    - role: starship
+      tags: [starship]
+    - role: ssh
+      tags: [ssh]
+    - role: gh
+      tags: [gh]

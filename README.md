@@ -1,43 +1,40 @@
 # Dotfiles
 
-Personal configuration files for macOS.
+Personal macOS configuration managed with Ansible.
 
 ## What's Included
 
-| Config | Description |
-|--------|-------------|
-| **ZSH** | Shell config with Starship prompt, autosuggestions, syntax highlighting, history search |
-| **Ghostty** | Terminal config - Catppuccin Mocha theme, tabs titlebar, block cursor |
-| **Starship** | Powerline-style prompt with git, language, and Docker segments |
-| **Git** | Global gitconfig and ignore patterns |
-| **SSH** | SSH client config with host aliases and proxy jumps |
-| **GitHub CLI** | `gh` configuration and aliases |
-| **Brewfile** | All Homebrew formulae, casks, and VS Code extensions |
+| Role | Description |
+|------|-------------|
+| **homebrew** | Formulae, casks |
+| **zsh** | Shell config with Starship prompt, autosuggestions, syntax highlighting, history search |
+| **git** | Global gitconfig and ignore patterns |
+| **ghostty** | Terminal config - Catppuccin Mocha theme, tabs titlebar, block cursor |
+| **starship** | Powerline-style prompt with git, language, and Docker segments |
+| **ssh** | SSH client config with host aliases and proxy jumps |
+| **gh** | GitHub CLI configuration and aliases |
 
 ## Installation
 
 ```bash
 git clone https://github.com/rcastley/dotfiles.git ~/Documents/GitHub/dotfiles
-cd ~/Documents/GitHub/dotfiles
-chmod +x install.sh
-./install.sh
+~/Documents/GitHub/dotfiles/bootstrap.sh
 ```
 
-The install script creates symlinks from your home directory to this repo. Existing files are backed up with a `.backup` extension.
+The bootstrap script will:
+1. Install Xcode Command Line Tools (if needed)
+2. Install Homebrew (if needed)
+3. Create a Python venv and install Ansible
+4. Run the playbook (backs up any existing config files)
 
-## Dependencies
-
-- [Homebrew](https://brew.sh) - package manager
-- [Starship](https://starship.rs) - cross-shell prompt
-- [Ghostty](https://ghostty.org) - terminal emulator
-- [Fira Code Nerd Font](https://www.nerdfonts.com) - patched font with icons
-
-## Updating
-
-Edit files in this repo directly - changes take effect immediately since everything is symlinked.
-
-To regenerate the Brewfile from your current install:
+## Running Individual Roles
 
 ```bash
-brew bundle dump --file=~/Documents/GitHub/dotfiles/Brewfile --force
+~/Documents/GitHub/dotfiles/bootstrap.sh --tags zsh,starship
+```
+
+## Dry Run
+
+```bash
+~/Documents/GitHub/dotfiles/bootstrap.sh --check
 ```

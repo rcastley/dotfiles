@@ -1,0 +1,14 @@
+---
+- name: Install .zshrc
+  ansible.builtin.copy:
+    src: .zshrc
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    backup: true
+    mode: "0644"
+
+- name: Install .zprofile
+  ansible.builtin.copy:
+    src: .zprofile
+    dest: "{{ ansible_env.HOME }}/.zprofile"
+    backup: true
+    mode: "0644"

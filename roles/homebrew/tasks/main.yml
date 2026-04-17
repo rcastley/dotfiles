@@ -1,0 +1,24 @@
+---
+- name: Install Homebrew formulae
+  community.general.homebrew:
+    name:
+      - gh
+      - htop
+      - jq
+      - mole
+      - python@3.14
+      - starship
+      - uv
+      - wget
+      - zsh
+      - zsh-autocomplete
+      - zsh-autosuggestions
+      - zsh-history-substring-search
+      - zsh-syntax-highlighting
+    state: present
+
+- name: Install Homebrew casks
+  community.general.homebrew_cask:
+    name:
+      - ghostty@tip
+    state: present

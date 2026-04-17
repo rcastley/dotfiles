@@ -1,0 +1,20 @@
+---
+- name: Install .gitconfig
+  ansible.builtin.copy:
+    src: .gitconfig
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    backup: true
+    mode: "0644"
+
+- name: Ensure ~/.config/git exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/git"
+    state: directory
+    mode: "0755"
+
+- name: Install global gitignore
+  ansible.builtin.copy:
+    src: ignore
+    dest: "{{ ansible_env.HOME }}/.config/git/ignore"
+    backup: true
+    mode: "0644"
