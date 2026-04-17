@@ -10,6 +10,7 @@ Personal configuration files for macOS.
 | **Ghostty** | Terminal config - Catppuccin Mocha theme, tabs titlebar, block cursor |
 | **Starship** | Powerline-style prompt with git, language, and Docker segments |
 | **Git** | Global gitconfig and ignore patterns |
+| **SSH** | SSH client config with host aliases and proxy jumps |
 | **GitHub CLI** | `gh` configuration and aliases |
 | **Brewfile** | All Homebrew formulae, casks, and VS Code extensions |
 

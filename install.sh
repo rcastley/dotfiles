@@ -36,6 +36,9 @@ link_file "$DOTFILES_DIR/ghostty/config" "$HOME/Library/Application Support/com.
 # Starship
 link_file "$DOTFILES_DIR/starship/starship.toml" "$HOME/.config/starship.toml"
 
+# SSH
+link_file "$DOTFILES_DIR/ssh/config" "$HOME/.ssh/config"
+
 # GitHub CLI
 link_file "$DOTFILES_DIR/gh/config.yml" "$HOME/.config/gh/config.yml"
 
