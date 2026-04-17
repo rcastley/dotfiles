@@ -1,13 +1,13 @@
 # Docker CLI completions (must be before compinit)
 [ -d "$HOME/.docker/completions" ] && fpath=("$HOME/.docker/completions" $fpath)
 
-autoload -Uz compinit
-compinit
-
 # Set history
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
+setopt HIST_IGNORE_ALL_DUPS
+setopt SHARE_HISTORY
+setopt APPEND_HISTORY
 
 # ZSH plugins (via Homebrew)
 if command -v brew &>/dev/null; then
@@ -16,10 +16,10 @@ if command -v brew &>/dev/null; then
     source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     source "$BREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
     source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-fi
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
+fi
 
 alias python3="python3.14"
 alias twl="terraform workspace list"
