@@ -22,6 +22,16 @@ link_file() {
 
 info "Installing dotfiles from $DOTFILES_DIR"
 
+# Homebrew - install first so plugins are available for zsh
+if ! command -v brew &>/dev/null; then
+    info "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+info "Installing Homebrew packages from Brewfile..."
+brew bundle --file="$DOTFILES_DIR/Brewfile" --no-lock
+
 # ZSH
 link_file "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 link_file "$DOTFILES_DIR/zsh/.zprofile" "$HOME/.zprofile"
@@ -41,13 +51,5 @@ link_file "$DOTFILES_DIR/ssh/config" "$HOME/.ssh/config"
 
 # GitHub CLI
 link_file "$DOTFILES_DIR/gh/config.yml" "$HOME/.config/gh/config.yml"
-
-# Homebrew
-if command -v brew &>/dev/null; then
-    info "Installing Homebrew packages from Brewfile..."
-    brew bundle --file="$DOTFILES_DIR/Brewfile" --no-lock
-else
-    warn "Homebrew not found. Install it first: https://brew.sh"
-fi
 
 success "Dotfiles installed!"

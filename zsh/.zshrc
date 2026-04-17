@@ -7,9 +7,12 @@ HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# ZSH plugins (via Homebrew)
+if command -v brew &>/dev/null; then
+    source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    source "$(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+    source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -22,9 +25,9 @@ alias tws="terraform workspace select"
 alias twd="terraform workspace delete"
 export PATH="/opt/homebrew/opt/python@3.14/libexec/bin:$PATH"
 
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/rcastley/.docker/completions $fpath)
-# End of Docker CLI completions
+# Docker CLI completions
+[ -d "$HOME/.docker/completions" ] && fpath=("$HOME/.docker/completions" $fpath)
+
 alias ollama-cli="ollama run deepseek-coder:33b"
 
 # bun
@@ -32,5 +35,4 @@ export BUN_INSTALL="$HOME/Library/Application Support/reflex/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export CLAUDE_CODE_MAX_OUTPUT_TOKENS=128000
 
-# Created by `pipx` on 2026-03-02 07:40:42
-export PATH="$PATH:/Users/rcastley/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
