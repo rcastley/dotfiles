@@ -3,7 +3,7 @@
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.config/gh"
     state: directory
-    mode: "0755"
+    mode: "0700"
 
 - name: Install GitHub CLI config
   ansible.builtin.copy:
