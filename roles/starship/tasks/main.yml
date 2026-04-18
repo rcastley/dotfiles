@@ -1,13 +1,13 @@
 ---
 - name: Ensure ~/.config exists
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config"
+    path: "{{ ansible_facts["env"]["HOME"] }}/.config"
     state: directory
     mode: "0755"
 
 - name: Install starship.toml
   ansible.builtin.copy:
     src: starship.toml
-    dest: "{{ ansible_env.HOME }}/.config/starship.toml"
+    dest: "{{ ansible_facts["env"]["HOME"] }}/.config/starship.toml"
     backup: true
     mode: "0644"
