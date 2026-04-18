@@ -14,5 +14,5 @@
       tags: [ghostty]
     - role: starship
       tags: [starship]
-- role: gh
+    - role: gh
       tags: [gh]
