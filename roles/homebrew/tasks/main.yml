@@ -26,9 +26,10 @@
   register: ghostty_check
   changed_when: false
   failed_when: false
+  when: ansible_os_family == "Darwin"
 
 - name: Install Ghostty (tip)
   community.general.homebrew_cask:
     name: ghostty@tip
     state: present
-  when: ghostty_check.rc != 0
+  when: ansible_os_family == "Darwin" and ghostty_check.rc != 0
