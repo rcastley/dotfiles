@@ -11,7 +11,6 @@ Personal macOS configuration managed with Ansible.
 | **git** | Global gitconfig and ignore patterns |
 | **ghostty** | Terminal config - Catppuccin Mocha theme, tabs titlebar, block cursor |
 | **starship** | Powerline-style prompt with git, language, and Docker segments |
-| **ssh** | SSH client config with host aliases and proxy jumps |
 | **gh** | GitHub CLI configuration and aliases |
 
 ## Installation
