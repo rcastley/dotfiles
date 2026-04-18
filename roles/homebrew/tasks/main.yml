@@ -17,8 +17,14 @@
       - zsh-syntax-highlighting
     state: present
 
-- name: Install Homebrew casks
+- name: Check if Ghostty is already installed
+  ansible.builtin.shell: brew list --cask ghostty 2>/dev/null || brew list --cask ghostty@tip 2>/dev/null
+  register: ghostty_check
+  changed_when: false
+  failed_when: false
+
+- name: Install Ghostty (tip)
   community.general.homebrew_cask:
-    name:
-      - ghostty@tip
+    name: ghostty@tip
     state: present
+  when: ghostty_check.rc != 0
