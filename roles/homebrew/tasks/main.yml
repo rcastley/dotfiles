@@ -3,10 +3,14 @@
   community.general.homebrew:
     name:
       - gh
+      - go
       - htop
+      - hugo
       - jq
       - mole
+      - ncurses
       - python@3.14
+      - sqlite
       - starship
       - uv
       - wget
