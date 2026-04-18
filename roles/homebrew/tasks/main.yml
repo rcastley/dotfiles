@@ -33,3 +33,9 @@
     name: ghostty@tip
     state: present
   when: ansible_os_family == "Darwin" and ghostty_check.rc != 0
+
+- name: Install Nerd Font (Linux)
+  community.general.homebrew_cask:
+    name: font-fira-code-nerd-font
+    state: present
+  when: ansible_os_family != "Darwin"
