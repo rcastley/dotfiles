@@ -1,13 +1,13 @@
 ---
 - name: Ensure Ghostty config directory exists
   ansible.builtin.file:
-    path: "{{ ansible_facts["env"]["HOME"] }}/Library/Application Support/com.mitchellh.ghostty"
+    path: "{{ ansible_facts.env.HOME }}/Library/Application Support/com.mitchellh.ghostty"
     state: directory
     mode: "0755"
 
 - name: Install Ghostty config
   ansible.builtin.copy:
     src: config
-    dest: "{{ ansible_facts["env"]["HOME"] }}/Library/Application Support/com.mitchellh.ghostty/config"
+    dest: "{{ ansible_facts.env.HOME }}/Library/Application Support/com.mitchellh.ghostty/config"
     backup: true
     mode: "0644"

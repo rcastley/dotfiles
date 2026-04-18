@@ -1,13 +1,13 @@
 ---
 - name: Ensure ~/.config/gh exists
   ansible.builtin.file:
-    path: "{{ ansible_facts["env"]["HOME"] }}/.config/gh"
+    path: "{{ ansible_facts.env.HOME }}/.config/gh"
     state: directory
     mode: "0700"
 
 - name: Install GitHub CLI config
   ansible.builtin.copy:
     src: config.yml
-    dest: "{{ ansible_facts["env"]["HOME"] }}/.config/gh/config.yml"
+    dest: "{{ ansible_facts.env.HOME }}/.config/gh/config.yml"
     backup: true
     mode: "0644"
