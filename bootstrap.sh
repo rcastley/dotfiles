@@ -32,6 +32,12 @@ if ! command -v brew &>/dev/null; then
     fi
 fi
 
+# Pull latest dotfiles
+if [ -d "$DOTFILES_DIR/.git" ]; then
+    info "Pulling latest dotfiles..."
+    git -C "$DOTFILES_DIR" pull --ff-only
+fi
+
 # Python venv + Ansible
 if [ ! -d "$VENV_DIR" ]; then
     info "Creating Python virtual environment..."

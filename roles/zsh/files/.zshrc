@@ -20,7 +20,11 @@ if command -v brew &>/dev/null; then
     bindkey '^[[B' history-substring-search-down
 fi
 
-alias ls="ls --color=auto"
+if [[ "$(uname)" == "Darwin" ]]; then
+    alias ls="ls -G"
+else
+    alias ls="ls --color=auto"
+fi
 alias python3="python3.14"
 alias twl="terraform workspace list"
 alias twn="terraform workspace new"
