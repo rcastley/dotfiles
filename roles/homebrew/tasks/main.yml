@@ -15,7 +15,6 @@
       - uv
       - wget
       - zsh
-      - zsh-autocomplete
       - zsh-autosuggestions
       - zsh-history-substring-search
       - zsh-syntax-highlighting

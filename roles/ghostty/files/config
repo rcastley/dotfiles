@@ -1,4 +1,4 @@
-theme = Catppuccin Mocha
+theme = Dracula
 split-divider-color = #ff79c6
 bold-is-bright = true
 clipboard-paste-protection = false

@@ -44,7 +44,7 @@ disabled = false
 
 [hostname]
 ssh_only = false
-style = "bg:#B5457A fg:white"
+style = "bg:#B5457A fg:white bold"
 format = '[@$hostname ]($style)'
 disabled = false
 
