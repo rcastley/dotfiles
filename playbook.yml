@@ -16,3 +16,5 @@
       tags: [starship]
     - role: gh
       tags: [gh]
+    - role: claude
+      tags: [claude]

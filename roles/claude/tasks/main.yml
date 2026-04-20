@@ -1,0 +1,13 @@
+---
+- name: Ensure Claude config directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_facts.env.HOME }}/.claude"
+    state: directory
+    mode: "0755"
+
+- name: Install Claude settings.json (only if absent)
+  ansible.builtin.copy:
+    src: settings.json
+    dest: "{{ ansible_facts.env.HOME }}/.claude/settings.json"
+    force: false
+    mode: "0644"
