@@ -13,4 +13,4 @@ cursor-style = block
 cursor-style-blink = false
 window-save-state = always
 confirm-close-surface = false
-shell-integration-features = no-cursor
+shell-integration-features = ssh-terminfo,ssh-env,no-cursor
