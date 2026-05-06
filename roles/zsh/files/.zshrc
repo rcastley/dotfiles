@@ -30,10 +30,6 @@ alias twl="terraform workspace list"
 alias twn="terraform workspace new"
 alias tws="terraform workspace select"
 alias twd="terraform workspace delete"
-export PATH="/opt/homebrew/opt/python@3.14/libexec/bin:$PATH"
-
-alias ollama-cli="ollama run deepseek-coder:33b"
-
-export CLAUDE_CODE_MAX_OUTPUT_TOKENS=128000
+export PATH="$(brew --prefix)/opt/python@3.14/libexec/bin:$PATH"
 
 eval "$(starship init zsh)"
