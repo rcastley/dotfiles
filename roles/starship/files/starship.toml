@@ -20,6 +20,7 @@ $haskell\
 $java\
 $julia\
 $nodejs\
+$python\
 $nim\
 $rust\
 $scala\
@@ -140,6 +141,14 @@ format = '[ $symbol ($version) ]($style)'
 symbol = "󰆥 "
 style = "bg:#549448 fg:white"
 format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = " "
+style = "bg:#549448 fg:white"
+format = '[ $symbol ${pyenv_prefix}(${version})(\($virtualenv\)) ]($style)'
+detect_extensions = []
+detect_files = []
+detect_folders = []
 
 [rust]
 symbol = ""
