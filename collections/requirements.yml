@@ -1,0 +1,6 @@
+---
+collections:
+  # >=10.0.0 contains the fix for the homebrew module misparsing newer brew's
+  # bottle-download progress glyphs (✔︎) as task failures.
+  - name: community.general
+    version: ">=10.0.0"

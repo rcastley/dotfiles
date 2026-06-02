@@ -48,6 +48,9 @@ info "Installing Ansible..."
 source "$VENV_DIR/bin/activate"
 pip install --quiet --upgrade pip ansible
 
+info "Installing Ansible collections..."
+ansible-galaxy collection install --upgrade -r "$DOTFILES_DIR/collections/requirements.yml"
+
 # Run playbook
 info "Running Ansible playbook..."
 ansible-playbook "$DOTFILES_DIR/playbook.yml" --diff "$@"
