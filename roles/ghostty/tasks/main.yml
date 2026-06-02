@@ -2,12 +2,12 @@
 - name: Set Ghostty config path (macOS)
   ansible.builtin.set_fact:
     ghostty_config_dir: "{{ ansible_facts.env.HOME }}/Library/Application Support/com.mitchellh.ghostty"
-  when: ansible_os_family == "Darwin"
+  when: ansible_facts['os_family'] == "Darwin"
 
 - name: Set Ghostty config path (Linux)
   ansible.builtin.set_fact:
     ghostty_config_dir: "{{ ansible_facts.env.HOME }}/.config/ghostty"
-  when: ansible_os_family != "Darwin"
+  when: ansible_facts['os_family'] != "Darwin"
 
 - name: Ensure Ghostty config directory exists
   ansible.builtin.file:
