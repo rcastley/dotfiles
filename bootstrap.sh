@@ -25,11 +25,11 @@ fi
 if ! command -v brew &>/dev/null; then
     info "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    if [ "$OS" = "Darwin" ]; then
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-    else
-        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    fi
+fi
+if [ "$OS" = "Darwin" ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 # Pull latest dotfiles
@@ -38,10 +38,20 @@ if [ -d "$DOTFILES_DIR/.git" ]; then
     git -C "$DOTFILES_DIR" pull --ff-only
 fi
 
-# Python venv + Ansible
+# Modern Python for the Ansible venv (system python3 may be too old for current ansible-core).
+info "Installing Python..."
+brew install --quiet python@3.14
+BREW_PYTHON="$(brew --prefix python@3.14)/bin/python3.14"
+
+# Recreate venv if it was built on an older interpreter.
+if [ -d "$VENV_DIR" ] && ! "$VENV_DIR/bin/python" -c 'import sys; sys.exit(0 if sys.version_info >= (3, 11) else 1)' 2>/dev/null; then
+    info "Removing outdated venv..."
+    rm -rf "$VENV_DIR"
+fi
+
 if [ ! -d "$VENV_DIR" ]; then
     info "Creating Python virtual environment..."
-    python3 -m venv "$VENV_DIR"
+    "$BREW_PYTHON" -m venv "$VENV_DIR"
 fi
 
 info "Installing Ansible..."
